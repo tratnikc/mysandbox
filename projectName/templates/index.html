@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Bike Share</title>
+        
+        <!-- Boostrap Stylesheet -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+        <!-- Personal css -->
+        <link rel="stylesheet" href="../static/css/style.css" media="screen">
+        <!-- <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" media="screen"> -->
+
+    </head>
+    <body>
+
+        <!-- navbar -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="/">Bike Share<span class="sr-only">(current)</span></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                    <!-- <li class="nav-item active">
+                        <a class="nav-link" href="index.html">Latitude <span class="sr-only">(current)</span></a>
+                    </li> -->
+                </ul>
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Plot Analyses
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <form method="POST" action="/plots" >
+                                <input type="submit" value="TORONTO" name="submit-button" class="btn btn-link btn-block">
+                                <input type="submit" value="VANCOUVER" name="submit-button" class="btn btn-link btn-block">
+                                <input type="submit" value="BOSTON" name="submit-button" class="btn btn-link btn-block">
+                                <input type="submit" value="NYC" name="submit-button" class="btn btn-link btn-block">
+                            </form>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/weather">Historical Weather</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/pricing">Pricing</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/citymap">Interactive Map</a>
+                    </li>
+                </ul>
+            </div>
+        </nav> 
+        <!-- end of navbar-->
+        <!-- jumbotron area -->
+        <div class="container-fluid">
+            <div class="col">
+                <div class="row" style="background-color: rgb(105, 231, 105);">
+                <div class="col-md-12 jumbotron" style="text-align:center">
+                    <h1>Bike Share</h1>
+                    <form method="POST" action="/plots" >
+                        <input type="submit" value="TORONTO" name="submit-button" class="btn btn-link" aria-pressed="true"> .
+                        <input type="submit" value="VANCOUVER" name="submit-button" class="btn btn-link" aria-pressed="true"> .
+                        <input type="submit" value="BOSTON" name="submit-button" class="btn btn-link" aria-pressed="true"> .
+                        <input type="submit" value="NYC" name="submit-button" class="btn btn-link" aria-pressed="true"> .
+                    </form>
+                    <hr>
+                    <h5>Looking into Implementing A Sustainable, Economical and Healthy Lifestyle Practice</h5>
+                </div>
+            </div>
+        </div>
+        <!-- end jumbotron -->
+
+        <!-- content  -->
+        <div class="container-fluid">
+            <div class="row">
+                <!-- Left Content Box -->
+                <div class="col-lg-5 col-md-12">
+                    <!-- <div class="box" style="padding-bottom: 20px;"> -->
+                    <div class="box">
+
+                        <main role="main" class="ml-sm-auto col-lg" style="text-align: left;">
+                        <h6 class="title">ABOUT</h6>
+                        <img src="{{ url_for('static', filename='images/logo.jpg') }}" alt="logo" class="embed-responsive">
+                        <br> 
+                        <p>Bike-sharing is a form of transportations that has seen a significant increase in usage globally. The current shift to usage of more sustainable transportation is a trend that embraces the onset of reducing carbon emissions and allocated capital investments from urban transport. The onset helps our economy benefits our economy by encouraging methods in preventing global warming, which in turn allows us to allocate the extra capital investment into other projects that can further provide a stable infrastructure. Not only does this program provide benefits to our economy but it also encourages our public to maintain a healthy lifestyle.</p>
+                        <p>As the Ministry of Transportation, we want to understand the feasibility of implementing a bike-sharing program across Canada. In Canada, we chose two major cities, Toronto & Vancouver, that already have a prototype bike-sharing program implemented and are active in gathering insight on bike-sharing programs. We chose to compare the efficiency of this program from a country with a similar economy as Canada, the US economy. The two cities, Boston, and New York will be used as a compar-ison sample against Toronto and Vancouver.</p>
+                        </main>
+                    </div>
+                </div>
+                <!-- end Left Content Box -->
+
+                <!-- start Right Content Box -->
+                <div class="col-lg-7 col-md-12">
+                    <div class="box">
+                        <h6 class="title">FUN FACTS</h6>
+                        <div class="card">
+                            <div class="card-header">
+                              <h5>TORONTO</h5>
+                            </div>
+                            <div class="card-body">
+                              <p>Toronto is a metropolitan commuter city that adheres to various populations. It is a city that has a role in various fields such as business, finance, technology, entertainment, and culture.</p>
+                              <h5 class="card-title">Analysis</h5>
+                              <p class="card-text">
+                                  <ul>
+                                      <li>The higher or lower the temperature the least amount of ridership was recorded. Most prefer to ride when the temperature is in-between.</li>
+                                      <li>The busiest time of day for bike usage is between 4-6pm [traffic hr.], especially at 6pm</li>
+                                      <li>The most popular destination is at York St/ Queensway W [Union Station].</li>
+                                  </ul>
+                                </p>
+                                <div id="tor-destinations">
+                                    <!-- insert top 5 destinations plot here -->
+                                </div>
+                            </div>
+                          </div>
+                    </div>
+                </div>
+                <!-- end Right Content Box -->
+            </div>
+        </div>
+        <!--end of content-->
+
+    <!--Footer-->
+    <div id = "footer">
+        <p>&copy; BIKE SHARE 2021</p>
+    </div>
+    
+    <!--Plugins-->
+    <!--Bootstrap Javascript: jQuery, Popper.js, Bootstrap JS, plotly, and d3-->
+ 
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.9.1/d3-tip.js"></script>
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  
+    <script type="text/javascript" src="../static/js/app.js"></script>
+    <!-- <script src="{{ url_for('static', filename='js/app.js') }}"></script> -->
+
+
+    </body>
+</html>
